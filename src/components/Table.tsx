@@ -44,7 +44,7 @@ const Table = ({ data }: TableProps) => {
       <tbody className={styles.tbody}>
         {
           data.map(record => (
-            <tr key={record.iocs}>
+            <tr key={record.name.join("")}>
               <td>{record.name.join(", ")}</td>
               <td>{record.microsoftDetectionName}</td>
               <td>{record.extensions}</td>
@@ -53,7 +53,7 @@ const Table = ({ data }: TableProps) => {
                 <Link to={`/${record.name.join("")}`}>
                   <MdEdit />
                 </Link>
-                <button className="deleteButton" onClick={() => onDelete(record.encryptionAlgorithm)}>
+                <button className="deleteButton" onClick={() => onDelete(record.name.join(""))}>
                   <MdDelete className="" />
                 </button>
               </td>
